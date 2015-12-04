@@ -1,27 +1,16 @@
 import java.util.ArrayList;
-import java.util.concurrent.SynchronousQueue;
 
 public class GameOfMaps
 	{
-	private int x;
-	private int y;
-	private String position;
-	private boolean found;
-	public GameOfMaps(int i, int o, String p, boolean a)
-		{
-		x = i;
-		y = o;
-		position = p;
-		found = a;
-		}
-	public static ArrayList<GameOfMaps> cords = new ArrayList<GameOfMaps>();
+	
+	public static ArrayList<MapSquare> cords = new ArrayList<MapSquare>();
 	public static void MapMaker()
 		{
 		for(int q = 0; q < 5; q++)
 			{
 			for(int w = 0; w < 5; w++)
 				{
-				cords.add(new GameOfMaps( q , w , "Default", false));
+				cords.add(new MapSquare( q , w , "Default", false));
 				}
 			}
 		cords.get(0).setPosition("F");
@@ -56,7 +45,6 @@ public class GameOfMaps
 		}
 	public static void PrintMap()
 		{
-		System.out.println("+---+---+---+---+---+");
 		for(int i = 0; i < cords.size(); i++)
 			{
 			if(cords.get(i).isFound() == false)
@@ -86,37 +74,4 @@ public class GameOfMaps
 			}
 
 		}
-	public int getX()
-		{
-		return x;
-		}
-	public void setX(int x)
-		{
-		this.x = x;
-		}
-	public int getY()
-		{
-		return y;
-		}
-	public void setY(int y)
-		{
-		this.y = y;
-		}
-	public String getPosition()
-		{
-		return position;
-		}
-	public void setPosition(String position)
-		{
-		this.position = position;
-		}
-	public boolean isFound()
-		{
-		return found;
-		}
-	public void setFound(boolean found)
-		{
-		this.found = found;
-		}
-
 	}
