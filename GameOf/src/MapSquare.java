@@ -1,16 +1,9 @@
-public class MapSquare
+public abstract class MapSquare
 	{
-	private int x;
-	private int y;
-	private String position;
-	private boolean found;
-	public MapSquare(int i, int o, String p, boolean a)
-		{
-		x = i;
-		y = o;
-		position = p;
-		found = a;
-		}
+	protected int x;
+	protected int y;
+	protected String position;
+	protected boolean found;
 	public int getX()
 		{
 		return x;
