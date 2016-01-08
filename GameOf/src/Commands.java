@@ -19,6 +19,6 @@ public class Commands
 	public static void help()
 		{
 		System.out.println("help: Shows this screen");
-		System.out.println("move <direction>:");
+		System.out.println("move <direction>: Moves you in the specified direction");
 		}
 	}

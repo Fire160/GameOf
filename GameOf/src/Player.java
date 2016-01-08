@@ -6,8 +6,8 @@ public class Player
 		{
 		name = n;
 		money = 0;
-		x = 2;
-		y = 2;
+		x = 4;
+		y = 4;
 		}
 	public String getName()
 		{

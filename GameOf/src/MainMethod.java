@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainMethod
@@ -9,13 +10,15 @@ public class MainMethod
 		Scanner things = new Scanner(System.in);
 		System.out.println("TYPE YOUR NAME TO BEGIN!");
 		String name = things.nextLine();
-		GameOfMaps.MapMaker();
+		ArrayList<MapSquare> cords = GameOfMaps.MapMaker();
 		Player person = new Player(name);
 		while(running == true)
 			{
-			GameOfMaps.PrintMap();
+			GameOfMaps.PrintMap(cords);
+			int cord = GameCommands.findSquare(person, cords);
+			cords.get(cord).run();
 			System.out.println("What do you do now?");
-			running = false;
+			Commands.takeCommand(things.nextLine(), person);;
 			}
 		things.close();
 		}

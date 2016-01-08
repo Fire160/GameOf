@@ -4,6 +4,7 @@ public abstract class MapSquare
 	protected int y;
 	protected String position;
 	protected boolean found;
+	protected abstract void run();
 	public int getX()
 		{
 		return x;
