@@ -38,6 +38,11 @@ public class Commands
 			System.out.println("CURRET HEALTH: " + person.getHealth());
 			System.out.println("EQUIPED WEAPON: " + person.geteWeapon().name + " DAMAGE: " + person.geteWeapon().attack);
 			}
+		else if(command.contains("inventory"))
+			{
+			System.out.println("+---------(" + person.getName() + "'s INVENTORY)---------+");
+			person.printInventory();
+			}
 		else
 			{
 			System.out.println("Sorry, not a valid command. Type help for a list of commands.");

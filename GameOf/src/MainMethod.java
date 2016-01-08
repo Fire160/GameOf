@@ -12,6 +12,7 @@ public class MainMethod
 		String name = things.nextLine();
 		ArrayList<MapSquare> cords = GameOfMaps.MapMaker();
 		Player person = new Player(name);
+		person.addInventory(new RealItem("Nothing",":(",0));
 		while(running == true)
 			{
 			int cord = GameCommands.findSquare(person, cords);

@@ -1,9 +1,11 @@
 public class Weapon extends Item
 	{
 	protected int attack;
-	public Weapon(String n, String d, int h)
+	public Weapon(String n, String d, int h, int v)
 		{
-		super(n,d);
+		name = n;
+		discription = d;
 		attack = h;
+		value = v;
 		}
 	}

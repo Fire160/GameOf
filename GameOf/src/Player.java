@@ -14,7 +14,7 @@ public class Player
 		health = 20;
 		x = 3;
 		y = 3;
-		eWeapon = new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 1);
+		eWeapon = new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 1, 10000);
 		}
 	public String getName()
 		{
@@ -55,6 +55,17 @@ public class Player
 	public void setAttack(int attack)
 		{
 		this.attack = attack;
+		}
+	public void printInventory()
+		{
+		for(int i = 0; i < inventory.size(); i++)
+			{
+			System.out.println(inventory.get(i).name + ": " + inventory.get(i).discription);
+			}
+		}
+	public void addInventory(Item temp)
+		{
+		inventory.add(temp);
 		}
 	public ArrayList<Item> getInventory()
 		{
