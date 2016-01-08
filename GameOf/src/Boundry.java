@@ -9,5 +9,6 @@ public class Boundry extends MapSquare
 	protected void run()
 		{
 		System.out.println("YOU HAVE COME TO THE EDGE, THERE IS NOTHING FOR YOU HERE!");
+		isFound = true;
 		}
 	}

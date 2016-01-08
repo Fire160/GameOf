@@ -19,22 +19,22 @@ public class GameOfMaps
 					}
 				else
 					{
-					int random = (int) (Math.random() * 4 ) +1;
-					if(random == 1)
+					int random = (int) (Math.random() * 5);
+					if(random == 1 || random == 0)
 						{
-						cords.add(new Spawn( q , w ));
+						cords.add(new Forest( q , w ));
 						}
 					else if(random == 2)
 						{
-						cords.add(new Spawn( q , w ));
+						cords.add(new Forest( q , w ));
 						}
 					else if(random == 3)
 						{
-						cords.add(new Spawn( q , w ));
+						cords.add(new Lake( q , w ));
 						}
 					else
 						{
-						cords.add(new Spawn( q , w ));
+						cords.add(new Dungeon( q , w ));
 						}
 					}
 				}
@@ -43,6 +43,7 @@ public class GameOfMaps
 		}
 	public static void PrintMap(ArrayList<MapSquare> cords)
 		{
+		System.out.println("       +----(MAP)----+");
 		System.out.println("+---+---+---+---+---+---+---+");
 		for(int i = 0; i < cords.size(); i++)
 			{
@@ -71,6 +72,9 @@ public class GameOfMaps
 					}
 				}
 			}
-
+//		System.out.println(" _____");
+//		System.out.println("|  N/ |");
+//		System.out.println("|W O E|");
+//		System.out.println("|__S__|");
 		}
 	}

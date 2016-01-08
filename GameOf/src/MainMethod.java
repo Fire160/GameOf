@@ -14,11 +14,10 @@ public class MainMethod
 		Player person = new Player(name);
 		while(running == true)
 			{
-			GameOfMaps.PrintMap(cords);
 			int cord = GameCommands.findSquare(person, cords);
 			cords.get(cord).run();
 			System.out.println("What do you do now?");
-			Commands.takeCommand(things.nextLine(), person);;
+			Commands.takeCommand(things.nextLine().toLowerCase(), person, cords);;
 			}
 		things.close();
 		}

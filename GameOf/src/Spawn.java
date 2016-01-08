@@ -8,12 +8,12 @@ public class Spawn extends MapSquare
 		}
 	protected void run()
 		{
-		if(found == false)
+		if(isFound == false)
 			{
 			System.out.println("You wake up in a clearing surrounded by trees.");
 			System.out.println("You have no recolection of how you got here.");
 			System.out.println("Light streams down all around you.");
-			found = true;
+			isFound = true;
 			}
 		else
 			{

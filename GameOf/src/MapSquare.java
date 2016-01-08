@@ -3,7 +3,8 @@ public abstract class MapSquare
 	protected int x;
 	protected int y;
 	protected String position;
-	protected boolean found;
+	protected boolean isFound;
+	protected boolean isLooted;
 	protected abstract void run();
 	public int getX()
 		{
@@ -31,10 +32,18 @@ public abstract class MapSquare
 		}
 	public boolean isFound()
 		{
-		return found;
+		return isFound;
 		}
-	public void setFound(boolean found)
+	public void setFound(boolean isFound)
 		{
-		this.found = found;
+		this.isFound = isFound;
+		}
+	public boolean isLooted()
+		{
+		return isLooted;
+		}
+	public void setLooted(boolean isLooted)
+		{
+		this.isLooted = isLooted;
 		}
 	}
