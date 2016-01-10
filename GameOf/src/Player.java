@@ -14,7 +14,9 @@ public class Player
 		health = 20;
 		x = 3;
 		y = 3;
+		inventory = new ArrayList<Item>();
 		eWeapon = new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 1, 10000);
+		inventory.add(new RealItem("Nothing",":(",0));
 		}
 	public String getName()
 		{
@@ -65,6 +67,7 @@ public class Player
 		}
 	public void addInventory(Item temp)
 		{
+		System.out.println("You found a " + temp.name + " and put it in your inventory.");
 		inventory.add(temp);
 		}
 	public ArrayList<Item> getInventory()

@@ -6,6 +6,7 @@ public abstract class MapSquare
 	protected boolean isFound;
 	protected boolean isLooted;
 	protected abstract void run();
+	protected Item loots;
 	public int getX()
 		{
 		return x;
@@ -46,4 +47,6 @@ public abstract class MapSquare
 		{
 		this.isLooted = isLooted;
 		}
+	protected abstract void generateLoot();
+	protected abstract void dig(Player person);
 	}

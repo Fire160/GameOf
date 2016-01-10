@@ -6,4 +6,8 @@ public class RealItem extends Item
 		discription = d;
 		value = v;
 		}
+	public void use(Player person)
+		{
+		
+		}
 	}

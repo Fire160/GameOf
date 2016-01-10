@@ -10,15 +10,19 @@ public class MainMethod
 		Scanner things = new Scanner(System.in);
 		System.out.println("TYPE YOUR NAME TO BEGIN!");
 		String name = things.nextLine();
+		System.out.println("FOR A LIST OF COMMANDS TYPE 'help'");
 		ArrayList<MapSquare> cords = GameOfMaps.MapMaker();
 		Player person = new Player(name);
-		person.addInventory(new RealItem("Nothing",":(",0));
-		while(running == true)
+		while(running == true && person.getHealth() > 0)
 			{
 			int cord = GameCommands.findSquare(person, cords);
 			cords.get(cord).run();
 			System.out.println("What do you do now?");
-			Commands.takeCommand(things.nextLine().toLowerCase(), person, cords);;
+			Commands.takeCommand(things.nextLine().toLowerCase(), person, cords, cord);;
+			}
+		if(person.getHealth() < 1)
+			{
+			System.out.println("You died in a harse world.");
 			}
 		things.close();
 		}

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Spawn extends MapSquare
 	{
 	public Spawn(int i, int o)
@@ -19,5 +21,20 @@ public class Spawn extends MapSquare
 			{
 			System.out.println("You stand in the clearing you woke up in.");
 			}
+		}
+	protected void generateLoot()
+		{
+		ArrayList<Item> temp = new ArrayList<Item>();
+		temp.add(new FoodItem("Berry","A delicious looking berry. But looks can be decieving.",0, 10));
+		temp.add(new FoodItem("Berry","A delicious looking berry. But looks can be decieving",0, -20));
+		temp.add(new Weapon("Stick","A wood stick....",3,2));
+		int rando = (int) (Math.random() * 3);
+		loots = (Item) temp.get(rando);
+		}
+	protected void dig(Player person)
+		{
+		System.out.println("You dig in the soft ground of the clearing.");
+		System.out.println("You found a " + loots.name + ".");
+		person.addInventory(loots);
 		}
 	}

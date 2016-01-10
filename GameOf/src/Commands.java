@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Commands
 	{
-	public static void takeCommand(String command, Player person, ArrayList<MapSquare> cords)
+	public static void takeCommand(String command, Player person, ArrayList<MapSquare> cords, int cord)
 		{
 		if(command.contains("move") || command.contains("walk"))
 			{
@@ -38,10 +38,43 @@ public class Commands
 			System.out.println("CURRET HEALTH: " + person.getHealth());
 			System.out.println("EQUIPED WEAPON: " + person.geteWeapon().name + " DAMAGE: " + person.geteWeapon().attack);
 			}
-		else if(command.contains("inventory"))
+		else if(command.contains("inventory") || command.contains("inven"))
 			{
 			System.out.println("+---------(" + person.getName() + "'s INVENTORY)---------+");
 			person.printInventory();
+			}
+		else if(command.contains("dig"))
+			{
+			if(cords.get(cord).isLooted == false)
+				{
+				cords.get(cord).dig(person);
+				cords.get(cord).setLooted(true);
+				}
+			else
+				{
+				System.out.println("You already dug here.");
+				}
+			}
+		else if(command.contains("use"))
+			{
+			boolean found = false;
+			int tracker = -1;
+			for(int i = 0; i < person.getInventory().size(); i++)
+				{
+				if(command.contains(person.getInventory().get(i).name.toLowerCase()))
+					{
+					found = true;
+					tracker = i;
+					}
+				}
+			if(found == true)
+				{
+				person.getInventory().get(tracker).use(person);
+				}
+			else
+				{
+				System.out.println("You own nothing with this name John Snow.");
+				}
 			}
 		else
 			{
@@ -51,11 +84,14 @@ public class Commands
 	public static void help()
 		{
 		System.out.println("+-------------------------(HELP)-------------------------+");
+		System.out.println("dig: Dig around the area with your current weapon.");
 		System.out.println("equip <weapon in inventory>: Equips the specified weapon");
 		System.out.println("help: Shows this screen");
+		System.out.println("inventory: Shows your inventory");
 		System.out.println("map: Displays the map");
 		System.out.println("move <direction> || walk <direction>: Moves you in the specified direction");
 		System.out.println("unequip: Unequips your current weapon");
+		System.out.println("use <item>: Uses the item, eats it if it's food.");
 		System.out.println("status: Shows your health and equiped weapon");
 		}
 	}

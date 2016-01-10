@@ -39,6 +39,10 @@ public class GameOfMaps
 					}
 				}
 			}
+		for(int i = 0; i < cords.size(); i++)
+			{
+			cords.get(i).generateLoot();
+			}
 		return cords;
 		}
 	public static void PrintMap(ArrayList<MapSquare> cords)
