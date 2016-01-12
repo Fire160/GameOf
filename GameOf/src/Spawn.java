@@ -34,7 +34,6 @@ public class Spawn extends MapSquare
 	protected void dig(Player person)
 		{
 		System.out.println("You dig in the soft ground of the clearing.");
-		System.out.println("You found a " + loots.name + ".");
-		person.addInventory(loots);
+		person.addInventory(loots); 
 		}
 	}
