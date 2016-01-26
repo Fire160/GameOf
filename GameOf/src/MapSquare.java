@@ -7,6 +7,10 @@ public abstract class MapSquare
 	protected boolean isLooted;
 	protected abstract void run();
 	protected Item loots;
+	public MapSquare()
+		{
+		
+		}
 	public int getX()
 		{
 		return x;

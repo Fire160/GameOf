@@ -17,7 +17,7 @@ public class MainMethod
 			{
 			int cord = GameCommands.findSquare(person, cords);
 			cords.get(cord).run();
-			System.out.println("What do you do now?");
+			System.out.println("WHAT DO YOU DO NOW?");
 			Commands.takeCommand(things.nextLine().toLowerCase(), person, cords, cord);;
 			}
 		if(person.getHealth() < 1)
