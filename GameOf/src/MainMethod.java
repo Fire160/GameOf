@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class MainMethod
 	{
 	public static boolean running;
+	public static ArrayList<MapSquare> cords = GameOfMaps.MapMaker();
+	public static Player person = new Player("Default");
 	public static void main(String[] args)
 		{
 		running = true;
@@ -11,14 +13,13 @@ public class MainMethod
 		System.out.println("TYPE YOUR NAME TO BEGIN!");
 		String name = things.nextLine();
 		System.out.println("FOR A LIST OF COMMANDS TYPE 'help'");
-		ArrayList<MapSquare> cords = GameOfMaps.MapMaker();
-		Player person = new Player(name);
+		person.setName(name);
 		while(running == true && person.getHealth() > 0)
 			{
-			int cord = GameCommands.findSquare(person, cords);
+			int cord = GameCommands.findSquare();
 			cords.get(cord).run();
 			System.out.println("WHAT DO YOU DO NOW?");
-			Commands.takeCommand(things.nextLine().toLowerCase(), person, cords, cord);;
+			Commands.takeCommand(things.nextLine().toLowerCase(), cord);;
 			}
 		if(person.getHealth() < 1)
 			{

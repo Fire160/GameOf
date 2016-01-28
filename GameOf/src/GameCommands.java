@@ -1,13 +1,11 @@
-import java.util.ArrayList;
-
 public class GameCommands
 	{
-	public static int findSquare(Player person, ArrayList<MapSquare> cords)
+	public static int findSquare()
 		{
 		int finder = 24;
-		for(int i = 0; i < cords.size(); i++)
+		for(int i = 0; i < MainMethod.cords.size(); i++)
 			{
-			if(person.getX() == cords.get(i).getX() && person.getY() == cords.get(i).getY())
+			if(MainMethod.person.getX() == MainMethod.cords.get(i).getX() && MainMethod.person.getY() == MainMethod.cords.get(i).getY())
 				{
 				finder = i;
 				}

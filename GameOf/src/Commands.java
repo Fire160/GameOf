@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Commands
 	{
-	public static void takeCommand(String command, Player person, ArrayList<MapSquare> cords, int cord)
+	public static void takeCommand(String command, int cord)
 		{
 		if(command.contains("move") || command.contains("walk"))
 			{
-			GameOfMoving.move(command, person);
+			GameOfMoving.move(command, MainMethod.person);
 			}
 		else if(command.contains("help"))
 			{
@@ -14,11 +14,11 @@ public class Commands
 			}
 		else if(command.contains("map"))
 			{
-			GameOfMaps.PrintMap(cords);
+			GameOfMaps.PrintMap();
 			}
 		else if(command.contains("unequip"))
 			{
-			if(person.geteWeapon().name.contains("Fists"))
+			if(MainMethod.person.geteWeapon().name.contains("Fists"))
 				{
 				System.out.println("You're not holding a weapon!");
 				}
@@ -30,25 +30,25 @@ public class Commands
 		else if(command.contains("equip"))
 			{
 			System.out.println("Stuff");
-			GameOfMaps.PrintMap(cords);
+			GameOfMaps.PrintMap();
 			}
 		else if(command.contains("status") || command.contains("stats") || command.contains("stat"))
 			{
-			System.out.println("+----(" + person.getName() + "'s Status)----+");
-			System.out.println("CURRET HEALTH: " + person.getHealth());
-			System.out.println("EQUIPED WEAPON: " + person.geteWeapon().name + " DAMAGE: " + person.geteWeapon().attack);
+			System.out.println("+----(" + MainMethod.person.getName() + "'s Status)----+");
+			System.out.println("CURRET HEALTH: " + MainMethod.person.getHealth());
+			System.out.println("EQUIPED WEAPON: " + MainMethod.person.geteWeapon().name + " DAMAGE: " + MainMethod.person.geteWeapon().attack);
 			}
 		else if(command.contains("inventory") || command.contains("inven"))
 			{
-			System.out.println("+---------(" + person.getName() + "'s INVENTORY)---------+");
-			person.printInventory();
+			System.out.println("+---------(" + MainMethod.person.getName() + "'s INVENTORY)---------+");
+			MainMethod.person.printInventory();
 			}
 		else if(command.contains("dig"))
 			{
-			if(cords.get(cord).isLooted == false)
+			if(MainMethod.cords.get(cord).isLooted == false)
 				{
-				cords.get(cord).dig(person);
-				cords.get(cord).setLooted(true);
+				MainMethod.cords.get(cord).dig();
+				MainMethod.cords.get(cord).setLooted(true);
 				}
 			else
 				{
@@ -59,9 +59,9 @@ public class Commands
 			{
 			boolean found = false;
 			int tracker = -1;
-			for(int i = 0; i < person.getInventory().size(); i++)
+			for(int i = 0; i < MainMethod.person.getInventory().size(); i++)
 				{
-				if(command.contains(person.getInventory().get(i).name.toLowerCase()))
+				if(command.contains(MainMethod.person.getInventory().get(i).name.toLowerCase()))
 					{
 					found = true;
 					tracker = i;
@@ -69,7 +69,7 @@ public class Commands
 				}
 			if(found == true)
 				{
-				person.getInventory().get(tracker).use(person);
+				MainMethod.person.getInventory().get(tracker).use();
 				}
 			else
 				{

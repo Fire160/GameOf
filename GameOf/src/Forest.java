@@ -8,7 +8,7 @@ public class Forest extends MapSquare
 		y = o;
 		position = "F";
 		}
-	protected void run()
+	public void run()
 		{
 		if(isFound == false)
 			{
@@ -29,8 +29,18 @@ public class Forest extends MapSquare
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
-	protected void dig(Player person)
+	public void dig()
 		{
 		System.out.println("You dig a random forest hole.. but why though?");
+		}
+	public void use(String name)
+		{
+		// TODO Auto-generated method stub
+		
+		}
+	public void attack()
+		{
+		// TODO Auto-generated method stub
+		
 		}
 	}

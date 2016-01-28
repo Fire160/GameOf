@@ -8,7 +8,7 @@ public class Lake extends MapSquare
 		y = o;
 		position = "L";
 		}
-	protected void run()
+	public void run()
 		{
 		if(isFound == false)
 			{
@@ -29,8 +29,22 @@ public class Lake extends MapSquare
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
-	protected void dig(Player person)
+	public void dig()
 		{
+		System.out.println("You start digging a hole, but it fills with water quickly!");
+		}
+	public void use(String name)
+		{
+		if(name.equals("Scuba Gear"))
+			{
+			System.out.println("You dive deep into the depths of the lake where you find " + loots.name);
+			
+			}
+		}
+	public void attack()
+		{
+		// TODO Auto-generated method stub
 		
 		}
+	
 	}

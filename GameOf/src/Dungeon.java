@@ -8,7 +8,7 @@ public class Dungeon extends MapSquare
 		y = o;
 		position = "D";
 		}
-	protected void run()
+	public void run()
 		{
 		if(isFound == false)
 			{
@@ -29,9 +29,18 @@ public class Dungeon extends MapSquare
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
-	protected void dig(Player person)
+	public void dig()
 		{
 		System.out.println("You give the monsters a hand.");
 		System.out.println("They start moving towards you and you decide that was a bad call so you run.");
+		}
+	public void use(String name)
+		{
+		
+		}
+	public void attack()
+		{
+		// TODO Auto-generated method stub
+		
 		}
 	}

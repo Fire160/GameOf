@@ -8,7 +8,7 @@ public class Spawn extends MapSquare
 		y = o;
 		position = "S";
 		}
-	protected void run()
+	public void run()
 		{
 		if(isFound == false)
 			{
@@ -31,9 +31,28 @@ public class Spawn extends MapSquare
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
-	protected void dig(Player person)
+	public void dig(Player person)
 		{
 		System.out.println("You dig in the soft ground of the clearing.");
 		person.addInventory(loots); 
+		
+		}
+	
+	public void use(String name)
+		{
+		// TODO Auto-generated method stub
+		
+		}
+	
+	public void attack()
+		{
+		// TODO Auto-generated method stub
+		
+		}
+	
+	public void dig()
+		{
+		// TODO Auto-generated method stub
+		
 		}
 	}

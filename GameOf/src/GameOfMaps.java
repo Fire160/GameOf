@@ -45,13 +45,13 @@ public class GameOfMaps
 			}
 		return cords;
 		}
-	public static void PrintMap(ArrayList<MapSquare> cords)
+	public static void PrintMap()
 		{
 		System.out.println("       +----(MAP)----+");
 		System.out.println("+---+---+---+---+---+---+---+");
-		for(int i = 0; i < cords.size(); i++)
+		for(int i = 0; i < MainMethod.cords.size(); i++)
 			{
-			if(cords.get(i).isFound() == false)
+			if(MainMethod.cords.get(i).isFound() == false)
 				{
 				if(i %7 == 6)
 					{
@@ -67,12 +67,12 @@ public class GameOfMaps
 				{
 				if(i %7 == 6)
 					{
-					System.out.println("| " + cords.get(i).getPosition() + " | ");
+					System.out.println("| " + MainMethod.cords.get(i).getPosition() + " | ");
 					System.out.println("+---+---+---+---+---+---+---+");
 					}
 				else
 					{
-					System.out.print("| " + cords.get(i).getPosition() + " ");
+					System.out.print("| " + MainMethod.cords.get(i).getPosition() + " ");
 					}
 				}
 			}
