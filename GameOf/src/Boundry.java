@@ -19,4 +19,34 @@ public class Boundry extends MapSquare
 		{
 		
 		}
+	@Override
+	protected void use(String name)
+		{
+		// TODO Auto-generated method stub
+		
+		}
+	@Override
+	protected void attack()
+		{
+		// TODO Auto-generated method stub
+		
+		}
+	@Override
+	protected void search()
+		{
+		// TODO Auto-generated method stub
+		
+		}
+	@Override
+	protected void enter()
+		{
+		// TODO Auto-generated method stub
+		
+		}
+	@Override
+	protected void dig()
+		{
+		// TODO Auto-generated method stub
+		
+		}
 	}

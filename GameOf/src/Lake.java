@@ -43,8 +43,16 @@ public class Lake extends MapSquare
 		}
 	public void attack()
 		{
+		System.out.println("I'm working on it! Keep calm and come back later!");
+		}
+	public void search()
+		{
+		System.out.println("You see many shadows moving in the water, but they are very deep.");
+		System.out.println("You would run out of air if you tried to ENTER the water.");
+		}
+	protected void enter()
+		{
 		// TODO Auto-generated method stub
 		
 		}
-	
 	}

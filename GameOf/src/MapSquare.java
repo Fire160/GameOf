@@ -8,6 +8,8 @@ public abstract class MapSquare
 	protected abstract void run();
 	protected abstract void use(String name);
 	protected abstract void attack();
+	protected abstract void search();
+	protected abstract void enter();
 	protected Item loots;
 	public MapSquare()
 		{

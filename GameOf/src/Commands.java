@@ -12,6 +12,10 @@ public class Commands
 			{
 			help();
 			}
+		else if(command.contains("search"))
+			{
+			MainMethod.cords.get(cord).search();
+			}
 		else if(command.contains("map"))
 			{
 			GameOfMaps.PrintMap();
@@ -45,15 +49,7 @@ public class Commands
 			}
 		else if(command.contains("dig"))
 			{
-			if(MainMethod.cords.get(cord).isLooted == false)
-				{
-				MainMethod.cords.get(cord).dig();
-				MainMethod.cords.get(cord).setLooted(true);
-				}
-			else
-				{
-				System.out.println("You already dug here.");
-				}
+			MainMethod.cords.get(cord).dig();
 			}
 		else if(command.contains("use"))
 			{
