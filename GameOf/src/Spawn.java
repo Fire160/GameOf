@@ -32,12 +32,19 @@ public class Spawn extends MapSquare
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
-	public void dig(Player person)
+	public void dig()
 		{
-		System.out.println("You dig in the soft ground of the clearing.");
-		person.addInventory(loots); 
+		if(isLooted == false)
+			{
+			System.out.println("You dig in the soft ground of the clearing.");
+			MainMethod.person.addInventory(loots); 
+			isLooted = true;
+			}
+		else
+			{
+			System.out.println("You already dug a hole here.");
+			}
 		}
-	
 	public void use(String name)
 		{
 		if(name.equals("Maguffin"))
@@ -48,11 +55,6 @@ public class Spawn extends MapSquare
 			}
 		}
 	public void attack()
-		{
-		
-		}
-	
-	public void dig()
 		{
 		
 		}

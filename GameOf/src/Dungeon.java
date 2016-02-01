@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Dungeon extends MapSquare
 	{
 	public Dungeon(int i, int o)
