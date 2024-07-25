@@ -17,13 +17,14 @@ public class MainMethod
 		while(running == true && person.getHealth() > 0)
 			{
 			int cord = GameCommands.findSquare();
+			System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
 			cords.get(cord).run();
 			System.out.println("WHAT DO YOU DO NOW?");
 			Commands.takeCommand(things.nextLine().toLowerCase(), cord);;
 			}
 		if(person.getHealth() < 1)
 			{
-			System.out.println("You died in a harse world.");
+			System.out.println("You died in a harsh world.");
 			}
 		things.close();
 		}

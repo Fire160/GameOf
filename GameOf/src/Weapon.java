@@ -3,14 +3,15 @@ import java.util.Scanner;
 public class Weapon extends Item
 	{
 	protected int attack;
-	public Weapon(String n, String d, int v, int h)
+	public Weapon(String n, String d, int v,int h)
 		{
 		name = n;
 		discription = d;
 		attack = h;
 		value = v;
+		type = "w";
 		}
-	protected void use(Player person)
+	protected void use(Player person, int i)
 		{
 		Scanner things = new Scanner(System.in);
 		System.out.println("Are you sure you wish to commit Seppuku?");
@@ -25,5 +26,6 @@ public class Weapon extends Item
 			{
 			System.out.println("You are a coward and have brought shame upon your family.");
 			}
+		things.close();
 		}
 	}

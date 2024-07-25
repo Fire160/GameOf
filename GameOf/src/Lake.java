@@ -25,7 +25,7 @@ public class Lake extends MapSquare
 		ArrayList<Item> temp = new ArrayList<Item>();
 		temp.add(new FoodItem("Berry","A delicious looking berry. But looks can be decieving.",0, 10));
 		temp.add(new FoodItem("Berry","A delicious looking berry. But looks can be decieving",0, -20));
-		temp.add(new Weapon("Stick","A wood stick....",3,2));
+		temp.add(new Weapon("Wet Stick","A wet wood stick, it's kinda sticky.",1,2));
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
@@ -37,8 +37,7 @@ public class Lake extends MapSquare
 		{
 		if(name.equals("Scuba Gear"))
 			{
-			System.out.println("You dive deep into the depths of the lake where you find " + loots.name);
-			
+			System.out.println("You dive deep into the depths of the lake where you find a " + loots.name);
 			}
 		}
 	public void attack()
@@ -52,7 +51,8 @@ public class Lake extends MapSquare
 		}
 	protected void enter()
 		{
-		// TODO Auto-generated method stub
-		
+		System.out.println("You enter the water, and a mysterious force compels you to continue walking toward the center.");
+		System.out.println("You quickly drown.");
+		MainMethod.person.setHealth(0);
 		}
 	}

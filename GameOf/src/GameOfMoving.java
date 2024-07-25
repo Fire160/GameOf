@@ -4,11 +4,11 @@ public class GameOfMoving
 		{
 		int x = person.getX();
 		int y = person.getY();
-		if(command.contains("north"))
+		if(command.toLowerCase().contains("north"))
 			{
 			if(x == 0)
 				{
-				System.out.println("You can't climb the border!");
+				System.out.println("You can't climb the mountains!");
 				}
 			else
 				{
@@ -16,11 +16,11 @@ public class GameOfMoving
 				System.out.println("YOU HEAD NORTH!");
 				}
 			}
-		else if(command.contains("south"))
+		else if(command.toLowerCase().contains("south"))
 			{
 			if(x == 6)
 				{
-				System.out.println("You can't climb the border!");
+				System.out.println("You can't climb the mountains!");
 				}
 			else
 				{
@@ -28,11 +28,11 @@ public class GameOfMoving
 				System.out.println("YOU HEAD SOUTH!");
 				}
 			}
-		else if(command.contains("west"))
+		else if(command.toLowerCase().contains("west"))
 			{
 			if(y == 0)
 				{
-				System.out.println("You can't climb the border!");
+				System.out.println("You can't climb the mountains!");
 				}
 			else
 				{
@@ -40,11 +40,11 @@ public class GameOfMoving
 				System.out.println("YOU HEAD WEST!");
 				}
 			}
-		else if(command.contains("east"))
+		else if(command.toLowerCase().contains("east"))
 			{
 			if(y == 6)
 				{
-				System.out.println("You can't climb the border!");
+				System.out.println("You can't climb the mountains!");
 				}
 			else
 				{

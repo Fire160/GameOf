@@ -15,7 +15,7 @@ public class Dungeon extends MapSquare
 			}
 		else
 			{
-			System.out.println("You stand outside a spooky dungeon. It's still being built by monsters.");
+			System.out.println("You stand outside a spooky dungeon. It's still being built by monsters. They are looking at you now.");
 			}
 		}
 	protected void generateLoot()
@@ -25,8 +25,8 @@ public class Dungeon extends MapSquare
 		}
 	public void dig()
 		{
-		System.out.println("You give the monsters a hand.");
-		System.out.println("They start moving towards you menecingly and you decide that was a bad call so you run.");
+		System.out.println("You decide to give the monsters a hand.");
+		System.out.println("As you get closer the blood dripping from their jowls makes you reconsider.");
 		}
 	public void use(String name)
 		{
@@ -40,7 +40,7 @@ public class Dungeon extends MapSquare
 		{
 		if(isLooted == false)
 			{
-			System.out.println("While on their lunch break you steal a monsters shovel.");
+			System.out.println("While on their lunch break you steal a monster's shovel.");
 			MainMethod.person.addInventory(loots);
 			isLooted = true;
 			}

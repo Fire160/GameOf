@@ -15,8 +15,8 @@ public class Player
 		x = 3;
 		y = 3;
 		inventory = new ArrayList<Item>();
-		eWeapon = new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 1, 10000);
-		inventory.add(new RealItem("Nothing",":(",0));
+		eWeapon = new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 1, 1);
+//		inventory.add(new RealItem("Nothing",":(",0));
 		}
 	public String getName()
 		{
@@ -64,6 +64,10 @@ public class Player
 			{
 			System.out.println(inventory.get(i).name + ": " + inventory.get(i).discription);
 			}
+		if(inventory.size()<1)
+			{
+			System.out.println("Your inventory is empty. :(");
+			}
 		}
 	public void addInventory(Item temp)
 		{
@@ -93,5 +97,10 @@ public class Player
 	public void setHealth(int health)
 		{
 		this.health = health;
+		}
+	public void damaged(int damage)
+		{
+		System.out.println(name + " takes " + damage + " damage, and now has " + (health - damage));
+		health = health - damage;
 		}
 	}

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class Commands
 	{
@@ -28,13 +28,35 @@ public class Commands
 				}
 			else
 				{
-				System.out.println("I'll be straight with you. This is harder than you think.");
+				MainMethod.person.addInventory(MainMethod.person.geteWeapon());
+				MainMethod.person.seteWeapon(new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 1, 1));
 				}
 			}
 		else if(command.contains("equip"))
 			{
-			System.out.println("Stuff");
-			GameOfMaps.PrintMap();
+			boolean equiped = false;
+			for(int i = 0; i < MainMethod.person.getInventory().size(); i++)
+				{
+				if(command.contains(MainMethod.person.getInventory().get(i).name.toLowerCase()))
+					{
+					if(MainMethod.person.getInventory().get(i).type.equals("w"))
+						{
+						MainMethod.person.seteWeapon((Weapon) MainMethod.person.getInventory().get(i));
+						System.out.println("You equiped the " + MainMethod.person.getInventory().get(i).name + ".");
+						MainMethod.person.getInventory().remove(i);
+						}
+					else
+						{
+						System.out.println("That is not a weapon.");
+						}
+					i = MainMethod.person.getInventory().size();
+					equiped = true;
+					}
+				}
+			if(!equiped)
+				{
+				System.out.println("You own nothing with this name.");
+				}
 			}
 		else if(command.contains("status") || command.contains("stats") || command.contains("stat"))
 			{
@@ -51,26 +73,46 @@ public class Commands
 			{
 			MainMethod.cords.get(cord).dig();
 			}
+		else if(command.contains("exit"))
+			{
+			System.out.println("You drift off to sleep, and all fades into oblivion.");
+			MainMethod.person.setHealth(0);
+			}
 		else if(command.contains("use"))
 			{
-			boolean found = false;
-			int tracker = -1;
-			for(int i = 0; i < MainMethod.person.getInventory().size(); i++)
+			int result = parseInv(command);
+			if(result < 0)
 				{
-				if(command.contains(MainMethod.person.getInventory().get(i).name.toLowerCase()))
-					{
-					found = true;
-					tracker = i;
-					}
-				}
-			if(found == true)
-				{
-				MainMethod.person.getInventory().get(tracker).use();
+				System.out.println("You own nothing with this name.");
 				}
 			else
 				{
-				System.out.println("You own nothing with this name John Snow.");
+				MainMethod.person.getInventory().get(result).use();
 				}
+			}
+		else if(command.contains("eat"))
+			{
+			int result = parseInv(command);
+			if(result < 0)
+				{
+				System.out.println("You own nothing with this name.");
+				}
+			if(!MainMethod.person.getInventory().get(result).type.equals("f"))
+				{
+				System.out.println("You can't eat a " + MainMethod.person.getInventory().get(result).name + "!");
+				}
+			else
+				{
+				((FoodItem) MainMethod.person.getInventory().get(result)).eat(result);
+				}
+			}
+		else if(command.contains("attack"))
+			{
+			MainMethod.cords.get(GameCommands.findSquare()).attack();
+			}
+		else if(command.contains("enter"))
+			{
+			MainMethod.cords.get(GameCommands.findSquare()).enter();
 			}
 		else
 			{
@@ -81,13 +123,28 @@ public class Commands
 		{
 		System.out.println("+-------------------------(HELP)-------------------------+");
 		System.out.println("dig: Dig around the area with your current weapon.");
+		System.out.println("search: Search the area.");
 		System.out.println("equip <weapon in inventory>: Equips the specified weapon");
 		System.out.println("help: Shows this screen");
 		System.out.println("inventory: Shows your inventory");
 		System.out.println("map: Displays the map");
 		System.out.println("move <direction> || walk <direction>: Moves you in the specified direction");
 		System.out.println("unequip: Unequips your current weapon");
-		System.out.println("use <item>: Uses the item, eats it if it's food.");
+		System.out.println("use <item>: Uses the item in the current area.");
+		System.out.println("eat: Eat a food item.");
 		System.out.println("status: Shows your health and equiped weapon");
+		System.out.println("attack <foe>: Attacks with current weapon.");
+		System.out.println("exit: Leave the adventure to a better man.");
+		}
+	public static int parseInv(String c)
+		{
+		for(int i = 0; i < MainMethod.person.getInventory().size(); i++)
+			{
+			if(c.contains(MainMethod.person.getInventory().get(i).name.toLowerCase()))
+				{
+				return i;
+				}
+			}
+		return -1;
 		}
 	}
