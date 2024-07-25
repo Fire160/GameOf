@@ -9,8 +9,16 @@ public class Boundry extends MapSquare
 		}
 	protected void run()
 		{
-		System.out.println("YOU HAVE COME TO THE EDGE, THERE IS NOTHING FOR YOU HERE!");
-		isFound = true;
+		if(!isFound)
+			{
+			System.out.println("You emerge from the forest at the edge of a sharp mountain face.");
+			System.out.println("You can't find a way up anywhere.");
+			isFound = true;
+			}
+		else
+			{
+			System.out.println("The mountains loom above you. There is no way out. You are trapped here.");
+			}
 		}
 	protected void generateLoot()
 		{
@@ -28,20 +36,20 @@ public class Boundry extends MapSquare
 	@Override
 	protected void attack()
 		{
-		// TODO Auto-generated method stub
-		
+		System.out.println("The mountains yield nothing to you. To them, you are nothing.");
 		}
 	@Override
 	protected void search()
 		{
-		// TODO Auto-generated method stub
-		
+		System.out.println("Upon further inspection, you notice that the ground seems to have shifted quickly.");
+		System.out.println("You get the feeling these mountains didn't exist until recently.");
 		}
 	@Override
 	protected void enter()
 		{
-		// TODO Auto-generated method stub
-		
+		System.out.println("You attempt to climb the steep cliff in front of you.");
+		System.out.println("You make some progress, but slip and fall, hurting yourself.");
+		MainMethod.person.damaged(2);
 		}
 	@Override
 	protected void dig()
