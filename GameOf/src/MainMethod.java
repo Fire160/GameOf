@@ -20,7 +20,7 @@ public class MainMethod
 			System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
 			cords.get(cord).run();
 			System.out.println("WHAT DO YOU DO NOW?");
-			Commands.takeCommand(things.nextLine().toLowerCase(), cord);;
+			Commands.takeCommand(things.nextLine().toLowerCase());;
 			}
 		if(person.getHealth() < 1)
 			{

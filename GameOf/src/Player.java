@@ -34,6 +34,10 @@ public class Player
 		{
 		this.money = money;
 		}
+	public void addMoney(int mone)
+		{
+		System.out.println("You pick up " + mone + " coins and add them to your stash. You now have " + money + ".");
+		}
 	public int getX()
 		{
 		return x;
@@ -60,6 +64,7 @@ public class Player
 		}
 	public void printInventory()
 		{
+		System.out.println("+---------(" + MainMethod.person.getName() + "'s INVENTORY)---------+");
 		for(int i = 0; i < inventory.size(); i++)
 			{
 			System.out.println(inventory.get(i).name + ": " + inventory.get(i).discription);
@@ -71,7 +76,7 @@ public class Player
 		}
 	public void addInventory(Item temp)
 		{
-		System.out.println("You found a " + temp.name + " and put it in your inventory.");
+//		System.out.println("You found a " + temp.name + " and put it in your inventory.");
 		inventory.add(temp);
 		}
 	public ArrayList<Item> getInventory()
@@ -100,7 +105,14 @@ public class Player
 		}
 	public void damaged(int damage)
 		{
-		System.out.println(name + " takes " + damage + " damage, and now has " + (health - damage));
+		if(damage > -1)
+			{
+			System.out.println(name + " takes " + damage + " damage, and now has " + (health - damage));
+			}
+		else
+			{
+			System.out.println(name + " is healed for " + (-damage) + " health, and now has " + (health - damage));
+			}
 		health = health - damage;
 		}
 	}

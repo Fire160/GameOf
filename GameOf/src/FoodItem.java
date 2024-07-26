@@ -11,13 +11,13 @@ public class FoodItem extends Item
 		}
 	public void eat(int i)
 		{
-		if(i == 0)
+		if(heal == 0)
 			{
 			System.out.println("The " + name + " was not very filling.");
 			}
-		else if(i < 0)
+		else if(heal < 0)
 			{
-			System.out.println("You ate the " + name + ". It dealt " + heal + " damage.");
+			System.out.println("You ate the " + name + ". It dealt " + -heal + " damage.");
 			}
 		else
 			{

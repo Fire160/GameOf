@@ -52,9 +52,11 @@ public class Boundry extends MapSquare
 		MainMethod.person.damaged(2);
 		}
 	@Override
-	protected void dig()
+	protected void dig(boolean shovel)
 		{
-		// TODO Auto-generated method stub
-		
+		System.out.println("The rocky ground prevents you from making any progress");
+		if(shovel)
+			{System.out.print(", even using your shovel");}
+		System.out.print(".");
 		}
 	}

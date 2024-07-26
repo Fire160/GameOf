@@ -23,26 +23,33 @@ public class Lake extends MapSquare
 	protected void generateLoot()
 		{
 		ArrayList<Item> temp = new ArrayList<Item>();
-		temp.add(new FoodItem("Berry","A delicious looking berry. But looks can be decieving.",0, 10));
-		temp.add(new FoodItem("Berry","A delicious looking berry. But looks can be decieving",0, -20));
+		temp.add(new FoodItem("Frog","I got a frog in my pocket.",30, 10));
+		temp.add(new RealItem("Maguffin","Some sort of strange bird shapped key.",0));
 		temp.add(new Weapon("Wet Stick","A wet wood stick, it's kinda sticky.",1,2));
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
-	public void dig()
+	public void dig(boolean shovel)
 		{
-		System.out.println("You start digging a hole, but it fills with water quickly!");
+		if(shovel)
+			{System.out.println("You use your shovel to dig a deep hole, which fills almost instantly with water.");}
+		else
+			{System.out.println("You start digging a hole, but it fills with water quickly!");}
 		}
 	public void use(String name)
 		{
 		if(name.equals("Scuba Gear"))
 			{
-			System.out.println("You dive deep into the depths of the lake where you find a " + loots.name);
+			enter();
+			}
+		else
+			{
+			System.out.println("You aren't quite sure what you wanted to accomplish with the " + name + " and decide to stare at it for a few minutes.");
 			}
 		}
 	public void attack()
 		{
-		System.out.println("I'm working on it! Keep calm and come back later!");
+		System.out.println("You let loose your mighty " + MainMethod.person.geteWeapon().name + " upon the deep water. The water shutters and trembles in fear of your power!");
 		}
 	public void search()
 		{
@@ -51,8 +58,34 @@ public class Lake extends MapSquare
 		}
 	protected void enter()
 		{
-		System.out.println("You enter the water, and a mysterious force compels you to continue walking toward the center.");
-		System.out.println("You quickly drown.");
-		MainMethod.person.setHealth(0);
+		if(isLooted)
+			{
+			System.out.println("You wouldn't go back in that water even if you had an army behind you.");
+			}
+		else if(Commands.checkWeapon("scuba gear"))
+			{
+			System.out.println("You dive deep into the depths of the lake where you find a " + loots.name);
+			System.out.println("A mysterious power draws you toward the center of the lake.");
+			System.out.println("As you swim, you notice many skeletons, including one with a large colorful hat, and mask.");
+			System.out.println("At the center you find a hidious creature, a foul misshapen mermaid, with a hundred eyes. It whispers your name enchantingly, and the world becomes blurry.");
+			System.out.println("Dazed only for a moment, you regain your senses, and wield your mighty " + MainMethod.person.geteWeapon().name + "!");
+			if(MainMethod.person.geteWeapon().attack > 9)
+				{
+				System.out.println("You slay the disgusting beast, and swim as fast as you can out of the deep dark waters.");
+				System.out.println("You flop out onto the shore, gasping for breath.");
+				}
+			else
+				{
+				System.out.println("Sadly your weapon is too weak, and this creature wraps its oily tentacles around your, pulling your scuba gear off, and pressing its twisted lips to yours.");
+				System.out.println("As you lose the last bit of air in your body, the world becomes dark and blurry again.");
+				MainMethod.person.setHealth(0);
+				}
+			}
+		else
+			{
+			System.out.println("You enter the water, and a mysterious force compels you to continue walking toward the center.");
+			System.out.println("You quickly drown.");
+			MainMethod.person.setHealth(0);
+			}
 		}
 	}

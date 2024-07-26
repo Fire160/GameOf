@@ -29,17 +29,28 @@ public class Forest extends MapSquare
 		int rando = (int) (Math.random() * 3);
 		loots = (Item) temp.get(rando);
 		}
-	public void dig()
+	public void dig(boolean shovel)
 		{
-		System.out.println("You try to dig a hole, but the ground is too tough to make any real progress.");
-		}
-	public void use(String name)
-		{
-		if(name.equals("Shovel") && !isLooted)
+		if(shovel && !isLooted)
 			{
 			System.out.println("You dug with the shovel and found " + loots.name + ".");
 			MainMethod.person.addInventory(loots);
 			isLooted = true;
+			}
+		else if(isLooted)
+			{
+			System.out.println("I think one hole is enough here, I mean what are the odds someone buried two things here?");
+			}
+		else
+			{
+			System.out.println("You try to dig a hole, but the ground is too tough to make any real progress.");
+			}
+		}
+	public void use(String name)
+		{
+		if(name.equals("Shovel"))
+			{
+			dig(true);
 			}
 		else if(isLooted)
 			{
@@ -71,6 +82,7 @@ public class Forest extends MapSquare
 		}
 	protected void enter()
 		{
-		System.out.println("There's no where to go.");
+		System.out.println("There's no where to go. Except maybe deeper into the forest. You forge ahead.");
+		search();
 		}
 	}
