@@ -4,7 +4,7 @@ public abstract class Item
 	protected int value;
 	public void use()
 		{
-		MainMethod.cords.get(GameCommands.findSquare()).use(name);
+		MainMethod.cords.get(GameCommands.findSquare()).use(name.toLowerCase());
 		}
 	public Item(String n, String d, int v, String t)
 		{

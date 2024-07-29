@@ -29,7 +29,7 @@ public class Spawn extends MapSquare
 		ArrayList<Item> temp = new ArrayList<Item>();
 		temp.add(new FoodItem("Spud","A delicious looking potato. But looks can be decieving.",0, 10));
 		temp.add(new FoodItem("Spud","A delicious looking potato. But looks can be decieving",0, -20));
-		temp.add(new Weapon("Stick","A wood stick.",3,2));
+		temp.add(new Weapon("Maguffin","A wood stick.",3,2));
 		temp.add(new Weapon("Nice Stick","A nice wood stick.",4,3));
 		int rando = (int) (Math.random() * 4);
 		loots = (Item) temp.get(rando);
@@ -85,10 +85,17 @@ public class Spawn extends MapSquare
 		if(isOpen)
 			{
 			System.out.println("You descend into the darkness. and fade from the face of the world.");
+			System.out.println("");
+			System.out.println("CONGRATS YOU WON");
+			MainMethod.running = false;
 			}
 		else
 			{
 			System.out.println("You search all over the shrine for a door, but you cannot find one. You are forced to give up.");
 			}
+		}
+	protected void makeCharacters()
+		{
+		
 		}
 	}

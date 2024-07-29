@@ -14,9 +14,11 @@ public class MainMethod
 		String name = things.nextLine();
 		System.out.println("FOR A LIST OF COMMANDS TYPE 'help'");
 		person.setName(name);
-		while(running == true && person.getHealth() > 0)
+		while(running && person.getHealth() > 0)
 			{
 			int cord = GameCommands.findSquare();
+			System.out.println("HIT ENTER TO CONTINUE");
+			things.nextLine();
 			System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
 			cords.get(cord).run();
 			System.out.println("WHAT DO YOU DO NOW?");

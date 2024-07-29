@@ -17,16 +17,16 @@ public class Lake extends MapSquare
 			}
 		else
 			{
-			System.out.println("You stand on the edge of a small lake.");
+			System.out.println("You stand on the edge of a small lake. You notice a putrid smell in the air.");
 			}
 		}
 	protected void generateLoot()
 		{
 		ArrayList<Item> temp = new ArrayList<Item>();
-		temp.add(new FoodItem("Frog","I got a frog in my pocket.",30, 10));
+//		temp.add(new FoodItem("Frog","I got a frog in my pocket.",30, 10));
 		temp.add(new RealItem("Maguffin","Some sort of strange bird shapped key.",0));
-		temp.add(new Weapon("Wet Stick","A wet wood stick, it's kinda sticky.",1,2));
-		int rando = (int) (Math.random() * 3);
+//		temp.add(new Weapon("Wet Stick","A wet wood stick, it's kinda sticky.",1,2));
+		int rando = (int) (Math.random() * 1);
 		loots = (Item) temp.get(rando);
 		}
 	public void dig(boolean shovel)
@@ -62,13 +62,15 @@ public class Lake extends MapSquare
 			{
 			System.out.println("You wouldn't go back in that water even if you had an army behind you.");
 			}
-		else if(Commands.checkWeapon("scuba gear"))
+		else if(Commands.checkFor("scuba gear"))
 			{
-			System.out.println("You dive deep into the depths of the lake where you find a " + loots.name);
-			System.out.println("A mysterious power draws you toward the center of the lake.");
+			System.out.println("You dive deep into the depths of the lake. A mysterious power draws you toward the center of the lake.");
 			System.out.println("As you swim, you notice many skeletons, including one with a large colorful hat, and mask.");
-			System.out.println("At the center you find a hidious creature, a foul misshapen mermaid, with a hundred eyes. It whispers your name enchantingly, and the world becomes blurry.");
-			System.out.println("Dazed only for a moment, you regain your senses, and wield your mighty " + MainMethod.person.geteWeapon().name + "!");
+			System.out.println("You find a " + loots.name + " as you swim by.");
+			MainMethod.person.addInventory(loots);
+			isLooted = true;
+			System.out.println("At the center you find a hidious creature, a foul misshapen mermaid with a hundred eyes. It whispers your name enchantingly, and the world becomes blurry.");
+			System.out.println("As a slimy tentacles begins to wrap around your leg, you regain your senses, and wield your mighty " + MainMethod.person.geteWeapon().name + "!");
 			if(MainMethod.person.geteWeapon().attack > 9)
 				{
 				System.out.println("You slay the disgusting beast, and swim as fast as you can out of the deep dark waters.");
@@ -76,7 +78,7 @@ public class Lake extends MapSquare
 				}
 			else
 				{
-				System.out.println("Sadly your weapon is too weak, and this creature wraps its oily tentacles around your, pulling your scuba gear off, and pressing its twisted lips to yours.");
+				System.out.println("Sadly your weapon is too weak, and this creature wraps its oily tentacles around you, pulling your scuba gear off, and pressing its twisted lips to yours.");
 				System.out.println("As you lose the last bit of air in your body, the world becomes dark and blurry again.");
 				MainMethod.person.setHealth(0);
 				}
@@ -87,5 +89,9 @@ public class Lake extends MapSquare
 			System.out.println("You quickly drown.");
 			MainMethod.person.setHealth(0);
 			}
+		}
+	protected void makeCharacters()
+		{
+		
 		}
 	}

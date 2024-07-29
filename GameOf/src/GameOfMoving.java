@@ -4,7 +4,8 @@ public class GameOfMoving
 		{
 		int x = person.getX();
 		int y = person.getY();
-		if(command.toLowerCase().contains("north"))
+		String s = lastPart(command).toLowerCase();
+		if(s.contains("north"))
 			{
 			if(x == 0)
 				{
@@ -16,7 +17,7 @@ public class GameOfMoving
 				System.out.println("YOU HEAD NORTH!");
 				}
 			}
-		else if(command.toLowerCase().contains("south"))
+		else if(s.contains("south"))
 			{
 			if(x == 6)
 				{
@@ -40,7 +41,7 @@ public class GameOfMoving
 				System.out.println("YOU HEAD WEST!");
 				}
 			}
-		else if(command.toLowerCase().contains("east"))
+		else if(s.contains("east"))
 			{
 			if(y == 6)
 				{
@@ -56,5 +57,13 @@ public class GameOfMoving
 			{
 			System.out.println("NO DIRECTION SPECIFIED!");
 			}
+		}
+	public static String lastPart(String s)
+		{
+		if(s.length() > 0 && s.contains(" "))
+			{
+			s = s.substring(s.indexOf(" "));
+			}
+		return s;
 		}
 	}

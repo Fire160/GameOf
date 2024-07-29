@@ -100,4 +100,10 @@ public class Dungeon extends MapSquare
 			System.out.println("It is probably unwise to try to enter the dungeon, given all the monsters around.");
 			}
 		}
+	@Override
+	protected void makeCharacters()
+		{
+		// TODO Auto-generated method stub
+		
+		}
 	}

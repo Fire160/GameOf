@@ -4,7 +4,7 @@ public class Boundry extends MapSquare
 		{
 		x = i;
 		y = o;
-		position = "B";
+		position = "M";
 		loots = new RealItem("","",0);
 		}
 	protected void run()
@@ -58,5 +58,11 @@ public class Boundry extends MapSquare
 		if(shovel)
 			{System.out.print(", even using your shovel");}
 		System.out.print(".");
+		}
+	@Override
+	protected void makeCharacters()
+		{
+		// TODO Auto-generated method stub
+		
 		}
 	}

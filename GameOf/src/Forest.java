@@ -85,4 +85,10 @@ public class Forest extends MapSquare
 		System.out.println("There's no where to go. Except maybe deeper into the forest. You forge ahead.");
 		search();
 		}
+	@Override
+	protected void makeCharacters()
+		{
+		// TODO Auto-generated method stub
+		
+		}
 	}

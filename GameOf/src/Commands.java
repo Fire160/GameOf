@@ -59,23 +59,19 @@ public class Commands
 			((FoodItem) MainMethod.person.getInventory().get(result)).eat(result);
 			}
 		}
-	private static void use(String command)
+	private static void use(String s)
 		{
-		int result = parseInv(command);
-		if(checkWeapon(command))
-			{
-			MainMethod.person.geteWeapon().use();
-			}
-		else if(result < 0)
-			{
-			System.out.println("You own nothing with this name.");
-			}
-		else
+		int result = parseInv(s);
+		if(checkWeapon(s) || result > -1)
 			{
 			MainMethod.person.getInventory().get(result).use();
 			}
+		else
+			{
+			System.out.println("You own nothing with this name.");
+			}
 		}
-	private static boolean checkFor(String s)
+	public static boolean checkFor(String s)
 		{
 		int result = parseInv(s);
 		if(checkWeapon(s) || result > -1)
@@ -153,7 +149,7 @@ public class Commands
 		{
 		for(int i = 0; i < MainMethod.person.getInventory().size(); i++)
 			{
-			if(c.contains(MainMethod.person.getInventory().get(i).name.toLowerCase()))
+			if(c.toLowerCase().contains(MainMethod.person.getInventory().get(i).name.toLowerCase()))
 				{
 				return i;
 				}
@@ -162,7 +158,7 @@ public class Commands
 		}
 	public static boolean checkWeapon(String c)
 		{
-		if(c.contains(MainMethod.person.geteWeapon().name.toLowerCase()))
+		if(c.toLowerCase().contains(MainMethod.person.geteWeapon().name.toLowerCase()))
 			{return true;}
 		return false;
 		}

@@ -18,6 +18,17 @@ public class Player
 		eWeapon = new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 1, 1);
 //		inventory.add(new RealItem("Nothing",":(",0));
 		}
+	public Player(String n, int m, int h, int a, int x1, int y1)
+		{
+		name = n;
+		money = m;
+		health = h;
+		attack = a;
+		x = x1;
+		y = y1;
+		inventory = new ArrayList<Item>();
+		eWeapon = new Weapon("Fists", "I don't know how these are in your inventory, soo that's a thing.", 0, 1);
+		}
 	public String getName()
 		{
 		return name;

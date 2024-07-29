@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class MapSquare
 	{
 	protected int x;
@@ -5,11 +7,13 @@ public abstract class MapSquare
 	protected String position;
 	protected boolean isFound;
 	protected boolean isLooted;
+	protected ArrayList<Player> characters;
 	protected abstract void run();
 	protected abstract void use(String name);
 	protected abstract void attack();
 	protected abstract void search();
 	protected abstract void enter();
+	protected abstract void makeCharacters();
 	protected Item loots;
 	public MapSquare()
 		{
