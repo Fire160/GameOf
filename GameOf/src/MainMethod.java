@@ -22,7 +22,7 @@ public class MainMethod
 			System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
 			cords.get(cord).run();
 			System.out.println("WHAT DO YOU DO NOW?");
-			Commands.takeCommand(things.nextLine().toLowerCase());;
+			Commands.takeCommand(things.nextLine().toLowerCase().trim());;
 			}
 		if(person.getHealth() < 1)
 			{
